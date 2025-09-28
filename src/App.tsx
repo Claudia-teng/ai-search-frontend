@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react'
-import './App.css'
+import styles from './App.module.css'
 
 const WS_URL = 'ws://localhost:8080/ws'
 
@@ -68,25 +68,25 @@ function App() {
   }
 
   return (
-    <div className='app'>
-      <header className='header'>
+    <div className={styles.app}>
+      <header className={styles.header}>
         <h1>AI Search Assistant</h1>
         <p>Ask anything and get intelligent answers</p>
-        <form className='search' onSubmit={handleSubmit}>
-          <input className='search-input' type='search' placeholder='Ask anything...' aria-label='Search' value={query} onChange={(e) => setQuery(e.target.value)} />
-          <button className='search-button' type='submit' disabled={isSummaryLoading || query.trim() === ''} aria-label='Submit search' title='Search'>
+        <form className={styles.search} onSubmit={handleSubmit}>
+          <input className={styles.searchInput} type='search' placeholder='Ask anything...' aria-label='Search' value={query} onChange={(e) => setQuery(e.target.value)} />
+          <button className={styles.searchButton} type='submit' disabled={isSummaryLoading || query.trim() === ''} aria-label='Submit search' title='Search'>
             {isSummaryLoading ? 'Searching…' : 'Search'}
           </button>
         </form>
       </header>
 
-      <main className='content'>
-        <div className='thread'>
-          {isSourcesLoading && <div className='loader'></div>}
+      <main className={styles.content}>
+        <div className={styles.thread}>
+          {isSourcesLoading && <div className={styles.loader}></div>}
           {sources.length > 0 && (
-            <div className='message sources'>
-              <div className='message-title'>Sources</div>
-              <div className='source-list'>
+            <div className={styles.message}>
+              <div className={styles.messageTitle}>Sources</div>
+              <div className={styles.sourceList}>
                 {sources.map((url, i) => {
                   let label = url
                   try {
@@ -95,7 +95,7 @@ function App() {
                     // Keep full URL if parsing fails
                   }
                   return (
-                    <a key={`${url}-${i}`} className='chip' href={url} target='_blank' rel='noreferrer' title={url}>
+                    <a key={`${url}-${i}`} className={styles.chip} href={url} target='_blank' rel='noreferrer' title={url}>
                       {label}
                     </a>
                   )
@@ -105,9 +105,9 @@ function App() {
           )}
 
           {summary && (
-            <div className='message summary'>
-              <div className='message-title'>Summary</div>
-              <div className='message-body'>
+            <div className={styles.message}>
+              <div className={styles.messageTitle}>Summary</div>
+              <div className={styles.messageBody}>
                 <p>{summary}</p>
               </div>
             </div>
