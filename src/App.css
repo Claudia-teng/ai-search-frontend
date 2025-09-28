@@ -6,9 +6,10 @@ body {
 #root {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 1.5rem;
+  padding: 3rem 1.5rem;
   text-align: left;
   width: 100%;
+  background-color: f6fff8;
 }
 
 /* App scaffolding */
@@ -26,7 +27,6 @@ body {
   z-index: 10;
   backdrop-filter: blur(8px);
   background: color-mix(in oklab, transparent 70%, currentColor 0%);
-  border-bottom: 1px solid rgba(127, 127, 127, 0.2);
   padding-bottom: 0.75rem;
 }
 
@@ -72,7 +72,7 @@ body {
 
 .search-button:hover {
   transform: translateY(-1px);
-  border-color: rgba(100, 108, 255, 0.8);
+  border-color: #5fa8d3;
 }
 
 .search-button:disabled {
@@ -138,7 +138,7 @@ body {
 }
 
 .chip:hover {
-  border-color: rgba(100, 108, 255, 0.85);
+  border-color: #5fa8d3;
   transform: translateY(-1px);
 }
 
@@ -178,4 +178,48 @@ body {
     background: rgba(0, 0, 0, 0.03);
     border-color: rgba(0, 0, 0, 0.1);
   }
+}
+
+.loader {
+  margin: 5rem auto;
+  width: 40px;
+  height: 40px;
+  --c: no-repeat linear-gradient(#5fa8d3 0 0);
+  background: var(--c), var(--c), var(--c), var(--c);
+  background-size: 21px 21px;
+  animation: l5 1.5s infinite cubic-bezier(0.3, 1, 0, 1);
+}
+@keyframes l5 {
+  0% {
+    background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+  }
+  33% {
+    background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+    width: 60px;
+    height: 60px;
+  }
+  66% {
+    background-position: 100% 0, 100% 100%, 0 100%, 0 0;
+    width: 60px;
+    height: 60px;
+  }
+  100% {
+    background-position: 100% 0, 100% 100%, 0 100%, 0 0;
+  }
+}
+
+h1 {
+  color: #5fa8d3;
+  margin: 1.5rem 0 1rem 0;
+  font-weight: 600;
+  line-height: 1.3;
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+header p {
+  color: #5e6472;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 3rem;
 }
