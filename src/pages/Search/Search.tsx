@@ -11,7 +11,7 @@ function Sources({ sources }: { sources: string[] }) {
   return (
     <>
       {sources.length > 0 && (
-        <Card>
+        <Card title="Sources">
           <div className={styles.sourceList}>
             {sources.map((url: string, i: number) => {
               let label = url;
@@ -29,7 +29,7 @@ function Summary({ summary }: { summary: string }) {
   return (
     <>
       {summary && (
-        <Card>
+        <Card title="Summary">
           <p>{summary}</p>
         </Card>
       )}

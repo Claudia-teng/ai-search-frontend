@@ -1,10 +1,10 @@
 import styles from "./Card.module.css";
 
-function Card({ children }: { children: React.ReactNode }) {
+function Card({ children, title }: { children: React.ReactNode; title: string }) {
   return (
     <>
       <div className={styles.card}>
-        <div className={styles.cardTitle}>Summary</div>
+        <div className={styles.cardTitle}>{title}</div>
         <div className={styles.cardBody}>{children}</div>
       </div>
     </>
