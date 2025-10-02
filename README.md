@@ -1,10 +1,14 @@
 ## AI Search Assistant (Frontend)
 
-<img width="850" height="600" alt="Screen Shot 2025-10-02 at 8 53 53 PM" src="https://github.com/user-attachments/assets/05a3a141-dab4-47d5-9c1f-4fbef3e8bdb6" />
+ <img width="1126" height="665" alt="Screen Shot 2025-10-02 at 9 47 13 PM" src="https://github.com/user-attachments/assets/44081236-0dae-442d-b71f-53f04ba17f10" />
 
 Demo: https://claudia-teng.github.io/ai-search-frontend/
 
-Backend: [https://github.com/Claudia-teng/ai-search-frontend](https://github.com/Claudia-teng/ai-search-backend)
+Backend: [https://github.com/Claudia-teng/ai-search-backend](https://github.com/Claudia-teng/ai-search-backend)
+
+![Screen Recording 2025-10-02 at 9 48 12 PM mov](https://github.com/user-attachments/assets/0d0d81b8-0e07-46df-a2b4-c9a12295e257)
+
+
 
 ### 📱 Mobile light / dark mode
 
