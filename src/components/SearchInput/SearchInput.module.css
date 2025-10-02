@@ -4,7 +4,8 @@
   gap: 0.5rem;
   margin: 0 auto;
   max-width: 800px;
-  background-color: #f8f9fa;
+  color-scheme: light dark;
+  background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(127, 127, 127, 0.25);
   padding: 0.5rem;
   border-radius: 999px;
@@ -23,7 +24,7 @@
 }
 
 .searchInput::placeholder {
-  color: rgba(127, 127, 127, 0.9);
+  color: rgba(200, 200, 200, 0.7);
 }
 
 .searchButton {
@@ -44,4 +45,15 @@
 .searchButton:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+}
+
+/* Light mode override */
+@media (prefers-color-scheme: light) {
+  .search {
+    background-color: #f8f9fa;
+    border-color: rgba(0, 0, 0, 0.08);
+  }
+  .searchInput::placeholder {
+    color: rgba(127, 127, 127, 0.6);
+  }
 }
