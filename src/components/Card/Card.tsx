@@ -1,4 +1,4 @@
-import styles from './Card.module.css'
+import styles from "./Card.module.css";
 
 function Card({ children }: { children: React.ReactNode }) {
   return (
@@ -8,7 +8,7 @@ function Card({ children }: { children: React.ReactNode }) {
         <div className={styles.cardBody}>{children}</div>
       </div>
     </>
-  )
+  );
 }
 
-export default Card
+export default Card;
