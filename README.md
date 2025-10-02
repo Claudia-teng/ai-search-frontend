@@ -1,73 +1,63 @@
-# React + TypeScript + Vite
+## AI Search Assistant (Frontend)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<img width="850" height="600" alt="Screen Shot 2025-10-02 at 8 53 53 PM" src="https://github.com/user-attachments/assets/05a3a141-dab4-47d5-9c1f-4fbef3e8bdb6" />
 
-Currently, two official plugins are available:
+Demo: https://claudia-teng.github.io/ai-search-frontend/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Backend: [https://github.com/Claudia-teng/ai-search-frontend](https://github.com/Claudia-teng/ai-search-backend)
 
-## React Compiler
+### 📱 Mobile light / dark mode
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+<img width="212" height="453" alt="Screen Shot 2025-10-02 at 9 17 37 PM" src="https://github.com/user-attachments/assets/ef4d71c7-0c3b-4a25-af23-f2b656cfd1d0" />
+<img width="208" height="457" alt="Screen Shot 2025-10-02 at 9 17 51 PM" src="https://github.com/user-attachments/assets/9d5bb2b3-576a-4cec-b6cd-217511dd7a59" />
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### ▶️ Getting Started
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **Prerequisites**
+  - Node.js
+  - npm
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- **Install**
+  - npm: `npm install`
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- **Environment variables**
+  - The app expects a WebSocket endpoint `VITE_WS_URL` exposed to the browser.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- **Run (dev)**
+  - `npm run dev`
+  - Open the URL printed by Vite (usually `http://localhost:5173`).
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- **Build & Preview**
+  - Build: `npm run build`
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- **Lint & Format**
+  - Lint: `npm run lint`
+  - Format: `npm run format`
+
+### 🔧 Architecture Overview
+
+- **Tech stack**: Vite + React + TypeScript, CSS Modules, ESLint + Prettier.
+
+- **Key files/directories**
+  - `src/pages/Search/Search.tsx`: main page; manages WebSocket lifecycle, state, and composition of child components.
+  - `src/components/SearchInput`: search form (input + button) with CSS module.
+  - `src/components/Card`: reusable card container with title/body styles.
+  - `src/components/Chip`: reusable link chip for source URLs.
+
+- **WebSocket flow**
+  - Connect on submit to `VITE_WS_URL`.
+  - Server sends:
+    - Sources (e.g., `{"urls":["https://…"]}`) → update the Sources list.
+    - Streaming summary chunks (e.g., `{ type: "stream", content: { content: "…" } }`) → append to Summary.
+    - Termination message (e.g., `{ type: "terminate" }`) → stop streaming/close socket.
+
+- **Styling**
+  - CSS Modules.
+  - Light/dark styling.
+
+### 🌐 Deployment
+
+<img width="729" height="528" alt="Screen Shot 2025-10-02 at 8 42 27 PM" src="https://github.com/user-attachments/assets/8402de49-5823-4329-87b5-534377ddc1a7" />
+
+The project is automatically built and deployed to GitHub Pages through a GitHub Actions CI/CD pipeline
